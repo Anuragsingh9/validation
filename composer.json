@@ -1,0 +1,19 @@
+{
+    "name": "pebibits/validation",
+    "description": "This will validate fields",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anurag Singh",
+            "email": "anuragsingh9999999@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "pebibits\\validation\\": "src/"
+        }
+    }
+}
