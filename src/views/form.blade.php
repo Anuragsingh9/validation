@@ -19,8 +19,11 @@
 <form action="{{route('submit')}}" method="post">
         @csrf
         Name:<input type="text" name="name">
-        Enter:<input type="text" name="email">
+        Email:<input type="text" name="email">
+        Password:<input type="text" name="password">
         date: <input type="date" name="date" id="">
+        Address:<input type="text" name="address">
+        State:<input type="text" name="state">
         <button type="submit">Click</button>
 
     </form>

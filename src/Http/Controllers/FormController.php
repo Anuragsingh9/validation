@@ -2,6 +2,8 @@
 
 namespace pebibits\validation\Http\Controllers;
 use pebibits\validation\Rules\Alphanumeric;
+use pebibits\validation\Requests\Formvalidate;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 class FormController extends Controller
@@ -11,15 +13,10 @@ class FormController extends Controller
         return view('validation::form');
     }
 
-    public function store(Request $request)
+    public function store(Formvalidate $request)
     {
 
-        $request->validate([
-            'email' => 'required|email',
-            'date'=>'required|after:yesterday',
-            'name'=>['required',new Alphanumeric]
-        ]);
-        return $request->all();
+       return $request->all();
     }
 }
 
