@@ -15,5 +15,13 @@
         "psr-4": {
             "pebibits\\validation\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "pebibits\\validation\\ValidationServiceProvider"
+            ]
+           
+        }
     }
 }
