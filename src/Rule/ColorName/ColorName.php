@@ -1,10 +1,10 @@
 <?php
 
-namespace pebibits\validation\Rules;
+namespace pebibits\validation\Rule\ColorName;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class Alphanumeric implements Rule
+class ColorName implements Rule
 {
     /**
      * Create a new rule instance.
@@ -25,11 +25,8 @@ class Alphanumeric implements Rule
      */
     public function passes($attribute, $value)
     {
-        // dd("ok");
-        
-        // return preg_match('/(^[\w-]*$)/',$value);
-        return strlen($value) <10;
-        
+            return strlen($value)>=6;
+
     }
 
     /**
@@ -39,6 +36,6 @@ class Alphanumeric implements Rule
      */
     public function message()
     {
-        return 'You can only have aplhabates.';
+        return 'Color name should atleast of 6 digit.';
     }
 }

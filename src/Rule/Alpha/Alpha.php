@@ -1,10 +1,11 @@
 <?php
 
-namespace pebibits\validation\Rules;
+namespace pebibits\validation\Rule\Alpha;
+;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class Alphanumeric implements Rule
+class Alpha implements Rule
 {
     /**
      * Create a new rule instance.
@@ -25,11 +26,8 @@ class Alphanumeric implements Rule
      */
     public function passes($attribute, $value)
     {
-        // dd("ok");
-        
-        // return preg_match('/(^[\w-]*$)/',$value);
-        return strlen($value) <10;
-        
+        return preg_match('/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',$value);
+        // ^([a-zA-Z]+)(\s[a-zA-Z]+)*$
     }
 
     /**
@@ -39,6 +37,6 @@ class Alphanumeric implements Rule
      */
     public function message()
     {
-        return 'You can only have aplhabates.';
+        return 'This cannot be a numeric.';
     }
 }
