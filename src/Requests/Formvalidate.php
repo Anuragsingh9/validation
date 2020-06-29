@@ -85,8 +85,29 @@ class Formvalidate extends FormRequest
             'auto_recording'=>'required|in:1',
             'phone_dial_in'=>'required|in:0',
             'raise_hand'=>'required|in:1',
-            'display_attendee_count'=>'required|in:0'
+            'display_attendee_count'=>'required|in:0',
+            ///////// SPACES MANAGEMENT Validation \\\\\\\\\\
+            'space_name'=>['required','min:30','max:80',new Alpha],
+            'space_short_name'=>['required','min:30','max:80',new Alpha],
+            'space_mood'=>['required','min:30','max:80',new Alpha],
+            'max_capacity'=>'required|numeric|min:200|max:400',
+            'space_image'=>'image|mimes:jpeg,png,jpg|max:2048',
+            'space_icon'=>'image|mimes:jpeg,png,jpg|max:2048',
+            'opening_hours'=>'date_format:H:i',
+            /////////Registration Form Validation\\\\\\\\\\
+            'learn_title'=>['required','min:50','max:200',new Alpha],
+            ///////// PARTICIPANTS MANAGEMENT Validation\\\\\\\\\\
+            'presenter'=>'required_without:moderator|nullable',
+            'moderator'=>'required_without:presenter||nullable',
+            ///////// REGISTRATION OF A SPECIFIC EVENT Validation\\\\\\\\\\
+            'customfield_1'=>['nullable',new Alpha],
+            'customfield_2'=>['nullable',new Alpha],
+            'customfield_3'=>['nullable',new Alpha]
 
+            
+
+
+            
 
 
 
