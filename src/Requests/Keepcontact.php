@@ -1,16 +1,11 @@
 <?php
 
 namespace App\Http\Requests;
-use pebibits\validation\Rule\Rules\Pincode;
-use pebibits\validation\Rule\Adhar\Adhar;
 use pebibits\validation\Rule\ColorName\ColorName;
 use pebibits\validation\Rule\Alpha\Alpha;
-
-use pebibits\validation\Rules\Alphanumeric;
-
 use Illuminate\Foundation\Http\FormRequest;
 
-class Formvalidate extends FormRequest
+class Keepcontact extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,8 +25,8 @@ class Formvalidate extends FormRequest
     public function rules()
     {
         return [
-            'keepcontact_page_title'=>'required|string|min:10|max:25',
-            'keepcontact_page_description'=>'required|string|min:40|max:100',
+            'keepcontact_page_title'=>['required','min:10','max:80',new Alpha],
+            'keepcontact_page_description'=>['required','min:30','max:80',new Alpha],
             'keepcontact_page_logo'=>'required|image|mimes:jpeg,png,jpg',
             'website_page_link'=>'required|url',
             'twitter_page_link '=>'required|url',
@@ -72,46 +67,7 @@ class Formvalidate extends FormRequest
             /////////KeepContact section Texts Validation\\\\\\\\\\
             'Reply_text'=>['required','min:30','max:80',new Alpha],
             'keepcontact_section_line1'=>['required','min:30','max:80',new Alpha],
-            'keepcontact_section_line2'=>['required','min:30','max:80',new Alpha],
-            ///////// EVENT IN BLUE JEANS Validation \\\\\\\\\\
-            'event_name'=>['required','min:3','max:8',new Alpha],
-            'start_datetime'=>'required|date|date_format:Y-m-d',
-            'end_datetime'=>'required|date|date_format:Y-m-d|after:start_datetime',
-            'event_chat'=>'required|in:O,1',
-            'attendee_search'=>'required|in:O,1',
-            'event_Q&A'=>'required|in:1',
-            'allow_anonymous_questions'=>'required|in:0',
-            'auto_approve_questions'=>'required|in:0',
-            'auto_recording'=>'required|in:1',
-            'phone_dial_in'=>'required|in:0',
-            'raise_hand'=>'required|in:1',
-            'display_attendee_count'=>'required|in:0',
-            ///////// SPACES MANAGEMENT Validation \\\\\\\\\\
-            'space_name'=>['required','min:30','max:80',new Alpha],
-            'space_short_name'=>['required','min:30','max:80',new Alpha],
-            'space_mood'=>['required','min:30','max:80',new Alpha],
-            'max_capacity'=>'required|numeric|min:200|max:400',
-            'space_image'=>'image|mimes:jpeg,png,jpg|max:2048',
-            'space_icon'=>'image|mimes:jpeg,png,jpg|max:2048',
-            'opening_hours'=>'date_format:H:i',
-            /////////Registration Form Validation\\\\\\\\\\
-            'learn_title'=>['required','min:50','max:200',new Alpha],
-            ///////// PARTICIPANTS MANAGEMENT Validation\\\\\\\\\\
-            'presenter'=>'required_without:moderator|nullable',
-            'moderator'=>'required_without:presenter||nullable',
-            ///////// REGISTRATION OF A SPECIFIC EVENT Validation\\\\\\\\\\
-            'customfield_1'=>['nullable',new Alpha],
-            'customfield_2'=>['nullable',new Alpha],
-            'customfield_3'=>['nullable',new Alpha]
-
-            
-
-
-            
-
-
-
-
+            'keepcontact_section_line2'=>['required','min:30','max:80',new Alpha]
         ];
     }
 }
